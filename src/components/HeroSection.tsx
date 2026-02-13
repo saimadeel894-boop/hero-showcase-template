@@ -26,9 +26,9 @@ const HeroSection = () => {
         />
       ))}
 
-      {/* Large ARBITER text behind boxer */}
+      {/* Large ARBITER text behind boxer — solid red fill matching reference */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-[1]">
-        <h1 className="font-heading font-black text-[18vw] lg:text-[14vw] leading-none text-stroke-red tracking-tighter whitespace-nowrap">
+        <h1 className="font-heading font-black text-[20vw] lg:text-[16vw] leading-none text-primary tracking-tighter whitespace-nowrap">
           ARBITER
         </h1>
       </div>
