@@ -1,5 +1,6 @@
 import { Search, ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoImg from "@/assets/eikyo-logo.jpg";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,11 +18,8 @@ const Navbar = () => {
     <nav className="w-full bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-1">
-          <span className="text-primary text-3xl font-heading font-bold">♥</span>
-          <span className="font-heading font-bold text-lg tracking-wider text-foreground">
-            ARBITER<sup className="text-[10px]">®</sup>
-          </span>
+        <a href="#" className="flex items-center">
+          <img src={logoImg} alt="Eikyo International" className="h-10 md:h-12 w-auto object-contain" />
         </a>
 
         {/* Desktop Nav */}
