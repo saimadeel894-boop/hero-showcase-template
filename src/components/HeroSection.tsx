@@ -78,7 +78,7 @@ const HeroSection = () => {
         <img
           src={boxerImg}
           alt="Professional boxer in fighting stance"
-          className="w-[65%] md:w-[45%] lg:w-[38%] max-w-[550px] object-contain drop-shadow-2xl"
+          className="w-[65%] md:w-[45%] lg:w-[38%] max-w-[550px] object-contain drop-shadow-2xl mix-blend-multiply"
         />
       </div>
 
