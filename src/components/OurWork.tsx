@@ -23,7 +23,7 @@ const OurWork = () => {
                 src={img}
                 alt={`Customer work ${i + 1}`}
                 className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                style={{ mixBlendMode: "multiply" }}
+                
               />
             </div>
           ))}
