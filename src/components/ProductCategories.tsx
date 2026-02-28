@@ -44,11 +44,11 @@ const ProductCategories = () => {
             <div className="flex-1 flex items-center justify-center w-full">
               <img
                 src={glovesImg}
-                alt="Boxing Glove"
+                alt="Karate Gloves"
                 className="max-h-[180px] md:max-h-[400px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <h3 className="font-heading font-bold text-sm md:text-2xl text-foreground uppercase tracking-wider mt-3 md:mt-4">Boxing Glove</h3>
+            <h3 className="font-heading font-bold text-sm md:text-2xl text-foreground uppercase tracking-wider mt-3 md:mt-4">Karate Gloves</h3>
             <p className="text-xs md:text-sm text-muted-foreground mt-0.5 md:mt-1">AB-858</p>
             <span className="inline-block mt-2 md:mt-3 text-[10px] md:text-xs font-heading font-semibold text-primary uppercase tracking-wider">Best Seller</span>
           </a>
