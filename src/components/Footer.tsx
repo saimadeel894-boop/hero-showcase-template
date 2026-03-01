@@ -2,102 +2,82 @@ import logoImg from "@/assets/eikyo-logo.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border text-foreground">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-1">
-            <img src={logoImg} alt="EIKYO International" className="h-10 md:h-12 w-auto mb-4" />
-            <p className="text-xs md:text-sm leading-relaxed text-muted-foreground mb-4">
-              Premium combat sports equipment manufacturer based in Sialkot, Pakistan.
-              Empowering champions worldwide.
+    <footer className="bg-[#0A0A0A] text-white pt-20 pb-12">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <img src={logoImg} alt="EIKYO International" className="h-14 w-auto object-contain brightness-0 invert" />
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+              EIKYO International is a leading manufacturer of premium combat sports equipment, dedicated to empowering athletes worldwide.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {[
-                { letter: "F", href: "https://www.facebook.com/profile.php?id=61576976498498" },
-                { letter: "I", href: "https://www.instagram.com/eikyointernational" },
-                { letter: "T", href: "#" },
-                { letter: "L", href: "#" },
-              ].map((s) => (
+                { label: "FB", href: "https://www.facebook.com/profile.php?id=61576976498498" },
+                { label: "IG", href: "https://www.instagram.com/eikyointernational" }
+              ].map((social) => (
                 <a
-                  key={s.letter}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  key={social.label}
+                  href={social.href}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 font-heading text-[10px] font-bold"
                 >
-                  <span className="text-xs text-muted-foreground uppercase font-heading font-bold">{s.letter}</span>
+                  {social.label}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Links Column 1 */}
           <div>
-            <h4 className="font-heading font-bold text-xs md:text-sm uppercase tracking-wider text-foreground mb-4 md:mb-5">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5">
-              {["Home", "About Us", "Products", "Catalogue", "Contact Us"].map((link) => (
+            <h4 className="font-heading font-black text-sm uppercase tracking-widest mb-8">Navigation</h4>
+            <ul className="space-y-4">
+              {["Home", "About Us", "Products", "Catalogue", "Contact"].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link}
-                  </a>
+                  <a href="#" className="text-white/40 text-sm hover:text-primary transition-colors">{link}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Links Column 2 */}
           <div>
-            <h4 className="font-heading font-bold text-xs md:text-sm uppercase tracking-wider text-foreground mb-4 md:mb-5">
-              Products
-            </h4>
-            <ul className="space-y-2.5">
-              {["Boxing Equipment", "MMA Gear", "Martial Arts Uniforms", "Muay Thai", "Protective Gear"].map((link) => (
+            <h4 className="font-heading font-black text-sm uppercase tracking-widest mb-8">Categories</h4>
+            <ul className="space-y-4">
+              {["Boxing", "Martial Arts", "MMA", "Training Gear", "Safety"].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link}
-                  </a>
+                  <a href="#" className="text-white/40 text-sm hover:text-primary transition-colors">{link}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="col-span-2 lg:col-span-1">
-            <h4 className="font-heading font-bold text-xs md:text-sm uppercase tracking-wider text-foreground mb-4 md:mb-5">
-              Contact
-            </h4>
-            <ul className="space-y-2.5 text-xs md:text-sm text-muted-foreground">
-              <li>📍 Sialkot, Punjab, Pakistan</li>
-              <li>
-                <a href="mailto:eikyointernational@gmail.com" className="hover:text-primary transition-colors">
-                  ✉️ eikyointernational@gmail.com
-                </a>
+          {/* Contact Column */}
+          <div>
+            <h4 className="font-heading font-black text-sm uppercase tracking-widest mb-8">Contact</h4>
+            <ul className="space-y-6">
+              <li className="flex gap-4">
+                <span className="text-primary font-bold">A</span>
+                <p className="text-white/40 text-sm">Wiesbaden, Germany</p>
               </li>
-              <li>
-                <a href="https://wa.me/923226aborede" className="hover:text-primary transition-colors">
-                  📞 WhatsApp Available
-                </a>
+              <li className="flex gap-4">
+                <span className="text-primary font-bold">E</span>
+                <p className="text-white/40 text-sm">info@eikyo-international.com</p>
               </li>
-              <li>
-                <a href="https://eikyoint.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  🌐 eikyoint.com
-                </a>
+              <li className="flex gap-4">
+                <span className="text-primary font-bold">W</span>
+                <a href="https://eikyoint.com" className="text-white/40 text-sm hover:text-primary transition-colors">www.eikyoint.com</a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-      <div className="border-t border-border py-5 md:py-6">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-[10px] md:text-xs text-muted-foreground">
+
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/20 text-[10px] uppercase tracking-widest font-heading font-bold">
             © 2026 EIKYO International. All rights reserved.
           </p>
-          <div className="flex gap-5">
-            <a href="#" className="text-[10px] md:text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[10px] md:text-xs text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+          <div className="flex gap-8">
+            <a href="#" className="text-white/20 text-[10px] uppercase tracking-widest font-heading font-bold hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="text-white/20 text-[10px] uppercase tracking-widest font-heading font-bold hover:text-white transition-colors">Terms of Use</a>
           </div>
         </div>
       </div>

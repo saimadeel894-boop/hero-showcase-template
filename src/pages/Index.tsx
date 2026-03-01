@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ProductCategories from "@/components/ProductCategories";
 import CategoriesSection from "@/components/CategoriesSection";
 import HowWeWork from "@/components/HowWeWork";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <ScrollReveal><ProductCategories /></ScrollReveal>
       <ScrollReveal><CategoriesSection /></ScrollReveal>
       <ScrollReveal><HowWeWork /></ScrollReveal>
+      <ScrollReveal><ContactForm /></ScrollReveal>
       <ScrollReveal><Footer /></ScrollReveal>
     </div>
   );

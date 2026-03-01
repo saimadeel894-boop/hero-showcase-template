@@ -7,94 +7,45 @@ import trainingRopeImg from "@/assets/training-rope.png";
 
 const ProductCategories = () => {
   return (
-    <section id="products" className="py-14 md:py-28 bg-background">
+    <section id="products" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-10 md:mb-14">
-          <h2 className="font-heading font-black text-2xl md:text-4xl lg:text-5xl text-foreground uppercase">
-            Our Product
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mt-3 md:mt-4 leading-relaxed text-sm">
-            Discover our most trusted and high- performance gear — handpicked to represent the best in quality and innovation.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {/* Boxing Card */}
+          <div className="relative group bg-primary aspect-[4/5] md:aspect-square flex flex-col items-center justify-between p-8 md:p-12 overflow-hidden shadow-2xl">
+            <h3 className="font-accent text-white text-5xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-none relative z-10 self-start">
+              BOXING
+            </h3>
 
-        {/* Product grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {/* Left column — 2 stacked */}
-          <div className="flex flex-col gap-3 md:gap-4">
-            <a href="#" className="group bg-card border border-border p-3 md:p-5 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <div className="aspect-square flex items-center justify-center">
-                <img src={uniformImg} alt="Karate Uniform" className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <h3 className="font-heading font-bold text-[10px] md:text-sm text-foreground uppercase tracking-wider mt-2 md:mt-3">Karate Uniform</h3>
-              <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">AS-02-101</p>
-            </a>
-            <a href="#" className="group bg-card border border-border p-3 md:p-5 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <div className="aspect-square flex items-center justify-center">
-                <img src={shinGuardsImg} alt="Shin Guards" className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <h3 className="font-heading font-bold text-[10px] md:text-sm text-foreground uppercase tracking-wider mt-2 md:mt-3">Punching bag</h3>
-              <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">AS-01-4401</p>
-            </a>
-          </div>
-
-          {/* Center — featured large product spanning 2 columns */}
-          <a href="#" className="group bg-card border border-border p-4 md:p-8 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300 col-span-2 flex flex-col items-center justify-center">
-            <div className="flex-1 flex items-center justify-center w-full">
+            {/* Pedestal & Product */}
+            <div className="relative flex-1 w-full flex items-center justify-center">
+              {/* Pedestal */}
+              <div className="absolute bottom-[10%] w-[80%] aspect-[4/1] bg-white/90 rounded-[50%] blur-[2px] shadow-inner" />
               <img
                 src={glovesImg}
-                alt="Karate Gloves"
-                className="max-h-[180px] md:max-h-[400px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                alt="Boxing Gear"
+                className="relative z-10 max-h-[70%] w-auto object-contain transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-4"
               />
             </div>
-            <h3 className="font-heading font-bold text-sm md:text-2xl text-foreground uppercase tracking-wider mt-3 md:mt-4">Karate Gloves</h3>
-            <p className="text-xs md:text-sm text-muted-foreground mt-0.5 md:mt-1">AB-858</p>
-            <span className="inline-block mt-2 md:mt-3 text-[10px] md:text-xs font-heading font-semibold text-primary uppercase tracking-wider">Best Seller</span>
-          </a>
-
-          {/* Right column — 2 stacked */}
-          <div className="flex flex-col gap-3 md:gap-4">
-            <a href="#" className="group bg-card border border-border p-3 md:p-5 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <div className="aspect-square flex items-center justify-center">
-                <img src={mmaGlovesImg} alt="MMA Shorts" className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <h3 className="font-heading font-bold text-[10px] md:text-sm text-foreground uppercase tracking-wider mt-2 md:mt-3">MMA Shorts</h3>
-              <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">AS-07-201</p>
-            </a>
-            <a href="#" className="group bg-card border border-border p-3 md:p-5 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <div className="aspect-square flex items-center justify-center">
-                <img src={headguardImg} alt="Head Guard" className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <h3 className="font-heading font-bold text-[10px] md:text-sm text-foreground uppercase tracking-wider mt-2 md:mt-3">Head Guard</h3>
-              <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5 md:mt-1">AS-07-202</p>
-            </a>
           </div>
-        </div>
 
-        {/* Description text below products */}
-        <div className="mt-10 md:mt-16 space-y-4">
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            Thanks to our exceptional quality and competitive prices, we have the privilege of creating significant value for our customers. Athletes and sports professionals promote our products, driving perfection.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            The business strategy of EIKYO International is simple: produce a high-quality product quickly and efficiently with meticulous
-            attention to detail, while providing exceptional customer service. We deliver worldwide, proving that technological advancements in business have made the world a much smaller place.
-          </p>
-        </div>
+          {/* Martial Arts Card */}
+          <div className="relative group bg-primary aspect-[4/5] md:aspect-square flex flex-col items-center justify-between p-8 md:p-12 overflow-hidden shadow-2xl">
+            <h3 className="font-accent text-black text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-none relative z-10 self-start">
+              Martial Arts
+            </h3>
 
-        {/* Second paragraph block */}
-        <div className="mt-8 md:mt-12 max-w-4xl mx-auto space-y-4">
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            EIKYO International is a rapidly growing brand with strong demand across online marketplaces and
-            sports retailers worldwide. We are committed to producing the finest combat sports equipment,
-            endorsed by professional athletes, coaches, and gym owners who trust our quality.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            With the capacity to produce thousands of personalised sportswear items per month, we continuously
-            invest in cutting-edge technology and, most importantly, in the skilled craftsmen who ensure every
-            product meets the highest standards of quality and durability.
-          </p>
+            {/* Pedestal & Product */}
+            <div className="relative flex-1 w-full flex items-center justify-center">
+              {/* Product inside a dark background box for contrast */}
+              <div className="w-[85%] aspect-video bg-[#1A1A1A] rounded-2xl overflow-hidden flex items-center justify-center border border-black/20 relative z-10">
+                <img
+                  src={uniformImg}
+                  alt="Martial Arts Gear"
+                  className="max-h-[140%] w-auto object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

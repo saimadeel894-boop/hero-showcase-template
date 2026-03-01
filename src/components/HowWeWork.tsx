@@ -30,42 +30,44 @@ const steps = [
 
 const HowWeWork = () => {
   return (
-    <section className="py-16 md:py-28 bg-background">
+    <section id="how-we-work" className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-10 md:mb-16">
-          <h2
-            className="font-black text-3xl md:text-5xl lg:text-7xl text-primary uppercase leading-[1.1]"
-            style={{ fontFamily: "'Anton', sans-serif" }}
-          >
-            How<br />We Work
+        <div className="mb-16 md:mb-24">
+          <h2 className="font-heading text-4xl md:text-6xl font-black text-black uppercase tracking-tight mb-6">
+            Our Process
           </h2>
-          <p className="text-foreground max-w-4xl mx-auto mt-6 md:mt-8 leading-relaxed text-sm md:text-base">
-            At EIKYO International, we craft premium custom fightwear for martial artists and boxers who value
-            performance, durability, and identity. From training apparel to competition gear, each design is tailored
-            to reflect your discipline, strength, and unique style. From concept to delivery, we manage the entire
-            process — making it seamless, reliable, and stress-free. Here's our approach.
-          </p>
+          <div className="w-20 h-1.5 bg-primary" />
         </div>
 
-        {/* Steps grid — 3 columns on desktop, then 2 below */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {steps.map((step) => (
-            <div
-              key={step.title}
-              className="bg-card border border-border rounded-lg p-6 md:p-8 text-center group hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-5 rounded-full bg-primary flex items-center justify-center">
-                <step.icon className="w-6 h-6 md:w-7 md:h-7 text-primary-foreground" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          {steps.map((step, index) => (
+            <div key={step.title} className="relative group">
+              <div className="font-accent text-primary/10 text-8xl absolute -top-10 left-0 pointer-events-none select-none">
+                0{index + 1}
               </div>
-              <h3 className="font-heading font-bold text-sm md:text-base text-foreground uppercase tracking-wider mb-3">
-                {step.title}
-              </h3>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
+              <div className="relative z-10 pt-4 border-t border-black/10 mt-2">
+                <h3 className="font-heading font-black text-sm md:text-base text-black uppercase tracking-wider mb-4 group-hover:text-primary transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-black/60 text-xs md:text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-24 md:mt-32 p-8 md:p-16 bg-[#121212] rounded-[40px] text-center text-white relative overflow-hidden group">
+          <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <h2 className="font-heading text-2xl md:text-4xl font-black uppercase tracking-tight mb-6 relative z-10">
+            Ready to gear up with EIKYO?
+          </h2>
+          <a
+            href="#contact"
+            className="inline-block font-heading font-bold text-sm uppercase tracking-wider bg-primary text-white px-10 py-4 hover:bg-white hover:text-primary transition-all duration-300 relative z-10"
+          >
+            Start Your Order
+          </a>
         </div>
       </div>
     </section>
