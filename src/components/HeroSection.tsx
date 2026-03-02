@@ -150,7 +150,7 @@ const HeroSection = () => {
         alt=""
         aria-hidden="true"
         className="absolute w-24 md:w-36 animate-float-3 opacity-80"
-        style={{ bottom: "12%", left: "4%", zIndex: 5 }}
+        style={{ bottom: "35%", left: "6%", zIndex: 5 }}
       />
       <img
         src={shinGuardsImg}
