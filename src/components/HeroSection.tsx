@@ -71,9 +71,10 @@ const HeroSection = () => {
         style={{ left: "4%", top: "52%", zIndex: 6 }}
       >
         <img src={uniformImg} alt="" aria-hidden="true" className="w-[100px] h-[120px] object-contain" />
-        <p className="font-heading text-[23px] font-bold text-foreground uppercase" style={{ letterSpacing: "3px" }}>
-          choice of champions
-        </p>
+        <p
+          className="font-heading text-[23px] font-bold text-foreground uppercase"
+          style={{ letterSpacing: "3px" }}
+        ></p>
       </div>
 
       {/* === 5K+ CUSTOMERS — top right card === */}
