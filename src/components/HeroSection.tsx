@@ -66,12 +66,18 @@ const HeroSection = () => {
         EIKYO
       </h1>
 
-      {/* === "choice of champions" — left side === */}
+      {/* === "choice of champions" with uniform image — left side === */}
       <div
-        className="absolute pointer-events-none hidden md:block"
-        style={{ left: "12%", top: "60%", zIndex: 4 }}
+        className="absolute pointer-events-none hidden md:flex items-center gap-4"
+        style={{ left: "4%", top: "52%", zIndex: 6 }}
       >
-        <p className="font-heading text-lg md:text-[23px] font-bold text-foreground uppercase" style={{ letterSpacing: "3px" }}>
+        <img
+          src={uniformImg}
+          alt=""
+          aria-hidden="true"
+          className="w-[100px] h-[120px] object-contain"
+        />
+        <p className="font-heading text-[23px] font-bold text-foreground uppercase" style={{ letterSpacing: "3px" }}>
           choice of champions
         </p>
       </div>
@@ -145,13 +151,7 @@ const HeroSection = () => {
         className="absolute w-16 md:w-28 animate-float-2 opacity-60"
         style={{ top: "8%", right: "22%", zIndex: 5 }}
       />
-      <img
-        src={uniformImg}
-        alt=""
-        aria-hidden="true"
-        className="absolute w-24 md:w-36 animate-float-3 opacity-80"
-        style={{ bottom: "35%", left: "6%", zIndex: 5 }}
-      />
+      {/* uniform image now grouped with "choice of champions" above */}
       <img
         src={shinGuardsImg}
         alt=""
