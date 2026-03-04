@@ -1,10 +1,11 @@
 import { useEffect, useRef, useCallback } from "react";
-import fighterImg from "@/assets/fighter-hero.webp";
-import glovesImg from "@/assets/boxing-gloves.png";
+import fighterImg from "@/assets/boxer-hero.webp";
+import pinkGloveImg from "@/assets/pink-boxing-glove.png";
 import headguardImg from "@/assets/headguard.png";
 import uniformImg from "@/assets/martial-arts-uniform.png";
 import shinGuardsImg from "@/assets/shin-guards.png";
 import mmaGlovesImg from "@/assets/mma-gloves.png";
+import glovesImg from "@/assets/boxing-gloves.png";
 import logoImg from "@/assets/eikyo-logo.jpg";
 
 const RedArrow = ({
