@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import fighterImg from "@/assets/fighter-hero.webp";
 import glovesImg from "@/assets/boxing-gloves.png";
 import headguardImg from "@/assets/headguard.png";
@@ -22,12 +22,7 @@ const RedArrow = ({
     "diagonal-sw": "M34 2 L6 34 M6 24 L6 34 L16 34",
   };
   return (
-    <svg
-      viewBox="0 0 40 40"
-      fill="none"
-      className={className}
-      style={style}
-    >
+    <svg viewBox="0 0 40 40" fill="none" className={className} style={style}>
       <path
         d={paths[direction]}
         stroke="#E8171A"
@@ -41,28 +36,30 @@ const RedArrow = ({
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const eikyoText1Ref = useRef<HTMLHeadingElement>(null);
+  const eikyoText2Ref = useRef<HTMLHeadingElement>(null);
+  const gloveWrapperRef = useRef<HTMLDivElement>(null);
+  const mouthguardWrapperRef = useRef<HTMLDivElement>(null);
+  const customersRef = useRef<HTMLDivElement>(null);
+  const sealWrapperRef = useRef<HTMLDivElement>(null);
+  const statRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const rect = section.getBoundingClientRect();
-    const heroHeight = section.offsetHeight;
-    // progress 0 at top, 1 when scrolled past hero
-    const progress = Math.min(1, Math.max(0, -rect.top / (heroHeight * 0.6)));
-    setScrollProgress(progress);
+    const scrollY = window.scrollY;
+    // Animation 2: Scroll parallax via direct DOM manipulation
+    if (eikyoText1Ref.current) eikyoText1Ref.current.style.transform = `translate(-50%, -30%) translateY(${scrollY * 0.2}px)`;
+    if (eikyoText2Ref.current) eikyoText2Ref.current.style.transform = `translate(-50%, -30%) translateY(${scrollY * 0.2}px)`;
+    if (gloveWrapperRef.current) gloveWrapperRef.current.style.transform = `translateY(${scrollY * 0.5}px)`;
+    if (mouthguardWrapperRef.current) mouthguardWrapperRef.current.style.transform = `translateY(${scrollY * 0.4}px)`;
+    if (customersRef.current) customersRef.current.style.transform = `translateY(${scrollY * 0.7}px)`;
+    if (sealWrapperRef.current) sealWrapperRef.current.style.transform = `translateY(${scrollY * 0.6}px)`;
+    if (statRef.current) statRef.current.style.transform = `translateY(${scrollY * 0.8}px)`;
   }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
-
-  // Fix 2: Boxer scale 0.75 → 1.0
-  const boxerScale = 0.75 + scrollProgress * 0.25;
-  // Fix 3: Text opacity 0.35 → 1.0
-  const textOpacity = 0.35 + scrollProgress * 0.65;
 
   return (
     <section
@@ -72,7 +69,8 @@ const HeroSection = () => {
     >
       {/* === LAYER 1: Solid red brand text — BEHIND fighter === */}
       <h1
-        className="absolute pointer-events-none select-none font-accent whitespace-nowrap"
+        ref={eikyoText1Ref}
+        className="absolute pointer-events-none select-none font-accent whitespace-nowrap hero-entry-eikyo"
         style={{
           fontSize: "clamp(180px, 20vw, 380px)",
           lineHeight: "0.92",
@@ -82,8 +80,7 @@ const HeroSection = () => {
           top: "50%",
           transform: "translate(-50%, -30%)",
           zIndex: 1,
-          opacity: textOpacity,
-          transition: "opacity 0.1s ease-out",
+          willChange: "transform",
         }}
       >
         EIKYO
@@ -91,10 +88,10 @@ const HeroSection = () => {
 
       {/* === LAYER 2: Fighter image — ABOVE solid text === */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none hero-entry-boxer"
         style={{
           left: "50%",
-          transform: `translateX(-50%) scale(${boxerScale})`,
+          transform: "translateX(-50%)",
           transformOrigin: "bottom center",
           bottom: 0,
           zIndex: 2,
@@ -102,7 +99,6 @@ const HeroSection = () => {
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "center",
-          transition: "transform 0.1s ease-out",
         }}
       >
         <img
@@ -114,7 +110,8 @@ const HeroSection = () => {
 
       {/* === LAYER 3: Outline text — IN FRONT of fighter (3D depth) === */}
       <h1
-        className="absolute pointer-events-none select-none font-accent whitespace-nowrap"
+        ref={eikyoText2Ref}
+        className="absolute pointer-events-none select-none font-accent whitespace-nowrap hero-entry-eikyo"
         style={{
           fontSize: "clamp(180px, 20vw, 380px)",
           lineHeight: "0.92",
@@ -125,51 +122,54 @@ const HeroSection = () => {
           top: "50%",
           transform: "translate(-50%, -30%)",
           zIndex: 3,
-          opacity: textOpacity,
-          transition: "opacity 0.1s ease-out",
+          willChange: "transform",
         }}
       >
         EIKYO
       </h1>
 
       {/* === FLOATING BOXING GLOVE — top-left with arrow === */}
+      {/* Outer: parallax scroll. Inner: float bob */}
       <div
-        className="absolute hero-fade-in hero-float"
-        style={{
-          top: "8%", left: "18%", zIndex: 5,
-          animationDelay: "0.2s, 0.2s",
-        }}
+        ref={gloveWrapperRef}
+        className="absolute"
+        style={{ top: "8%", left: "18%", zIndex: 5, willChange: "transform" }}
       >
-        <RedArrow
-          direction="diagonal-sw"
-          className="absolute w-8 md:w-10 hero-fade-in"
-          style={{ top: "-10px", left: "-30px", animationDelay: "1.0s" }}
-        />
+        <div className="hero-entry-glove hero-bob-glove">
+          <RedArrow
+            direction="diagonal-sw"
+            className="absolute w-8 md:w-10"
+            style={{ top: "-10px", left: "-30px" }}
+          />
+          <img
+            src={glovesImg}
+            alt=""
+            aria-hidden="true"
+            className="w-20 md:w-32"
+            style={{ transform: "rotate(-15deg)" }}
+          />
+        </div>
+      </div>
+
+      {/* === FLOATING MOUTH GUARD — bottom-left === */}
+      {/* Outer: parallax scroll. Inner: float bob */}
+      <div
+        ref={mouthguardWrapperRef}
+        className="absolute"
+        style={{ bottom: "8%", left: "14%", zIndex: 4, willChange: "transform" }}
+      >
         <img
-          src={glovesImg}
+          src={shinGuardsImg}
           alt=""
           aria-hidden="true"
-          className="w-20 md:w-32"
-          style={{ transform: "rotate(-15deg)" }}
+          className="w-20 md:w-36 opacity-40 hero-bob-mouthguard"
         />
       </div>
 
-      {/* === FLOATING SHIN GUARD (mouth guard equivalent) — bottom-left === */}
-      <img
-        src={shinGuardsImg}
-        alt=""
-        aria-hidden="true"
-        className="absolute w-20 md:w-36 opacity-40 hero-fade-in hero-float"
-        style={{
-          bottom: "8%", left: "14%", zIndex: 4,
-          animationDelay: "0.6s, 0.5s",
-        }}
-      />
-
       {/* === "CHOICE OF CHAMPIONS" — lower-left below red text === */}
       <div
-        className="absolute pointer-events-none hero-fade-in"
-        style={{ left: "5%", bottom: "38%", zIndex: 6, animationDelay: "0.4s" }}
+        className="absolute pointer-events-none hero-entry-tagline"
+        style={{ left: "5%", bottom: "38%", zIndex: 6 }}
       >
         <p
           className="font-heading text-foreground uppercase"
@@ -185,14 +185,11 @@ const HeroSection = () => {
 
       {/* === ARROW + "30+ Years of Experience" — bottom-left === */}
       <div
-        className="absolute hero-fade-in"
-        style={{ left: "3%", bottom: "4%", zIndex: 10, animationDelay: "0.5s" }}
+        ref={statRef}
+        className="absolute hero-entry-stat"
+        style={{ left: "3%", bottom: "4%", zIndex: 10, willChange: "transform" }}
       >
-        <RedArrow
-          direction="down"
-          className="w-6 md:w-8 mb-1 hero-fade-in"
-          style={{ animationDelay: "1.0s" }}
-        />
+        <RedArrow direction="down" className="w-6 md:w-8 mb-1" />
         <h3
           className="font-heading text-foreground leading-none"
           style={{ fontSize: "clamp(36px, 4vw, 64px)", fontWeight: 900 }}
@@ -214,16 +211,12 @@ const HeroSection = () => {
         href="https://wa.me/"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute flex items-center gap-2 hero-fade-in"
-        style={{ left: "12%", bottom: "4%", zIndex: 10, animationDelay: "0.5s" }}
+        className="absolute flex items-center gap-2 hero-entry-stat"
+        style={{ left: "12%", bottom: "4%", zIndex: 10 }}
       >
         <div
           className="rounded-full flex items-center justify-center"
-          style={{
-            width: 44,
-            height: 44,
-            background: "#25D366",
-          }}
+          style={{ width: 44, height: 44, background: "#25D366" }}
         >
           <svg viewBox="0 0 24 24" className="w-6 h-6 fill-white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -240,14 +233,11 @@ const HeroSection = () => {
 
       {/* === ARROW + "5K+ CUSTOMERS" — top-right === */}
       <div
-        className="absolute hidden md:flex items-center gap-3 hero-fade-in"
-        style={{ top: "12%", right: "5%", zIndex: 10, animationDelay: "0.4s" }}
+        ref={customersRef}
+        className="absolute hidden md:flex items-center gap-3 hero-entry-customers"
+        style={{ top: "12%", right: "5%", zIndex: 10, willChange: "transform" }}
       >
-        <RedArrow
-          direction="right"
-          className="w-8 md:w-10 hero-fade-in"
-          style={{ animationDelay: "1.0s" }}
-        />
+        <RedArrow direction="right" className="w-8 md:w-10" />
         <h3
           className="font-heading text-foreground uppercase"
           style={{ fontSize: "clamp(22px, 2.2vw, 32px)", fontWeight: 800, letterSpacing: "0.05em" }}
@@ -258,14 +248,10 @@ const HeroSection = () => {
 
       {/* === ARROW + PRODUCT IMAGES (jerseys equivalent) — right side === */}
       <div
-        className="absolute hidden md:flex items-center gap-3 hero-fade-in"
-        style={{ top: "28%", right: "5%", zIndex: 10, animationDelay: "0.6s" }}
+        className="absolute hidden md:flex items-center gap-3 hero-entry-customers"
+        style={{ top: "28%", right: "5%", zIndex: 10 }}
       >
-        <RedArrow
-          direction="right"
-          className="w-8 hero-fade-in"
-          style={{ animationDelay: "1.0s" }}
-        />
+        <RedArrow direction="right" className="w-8" />
         <div className="flex items-center gap-1">
           {[glovesImg, headguardImg, shinGuardsImg, mmaGlovesImg, uniformImg].map((img, i) => (
             <img
@@ -283,25 +269,20 @@ const HeroSection = () => {
         src={headguardImg}
         alt=""
         aria-hidden="true"
-        className="absolute w-16 md:w-28 opacity-50 hidden md:block hero-fade-in hero-float"
-        style={{
-          bottom: "32%", right: "6%", zIndex: 5,
-          animationDelay: "0.6s, 1.5s",
-        }}
+        className="absolute w-16 md:w-28 opacity-50 hidden md:block"
+        style={{ bottom: "32%", right: "6%", zIndex: 5 }}
       />
 
       {/* === BRAND SEAL — bottom-right with arrow === */}
+      {/* Outer: parallax scroll. Inner: continuous spin */}
       <div
-        className="absolute flex items-center gap-2 hero-fade-in"
-        style={{ right: "4%", bottom: "6%", zIndex: 10, animationDelay: "0.8s" }}
+        ref={sealWrapperRef}
+        className="absolute flex items-center gap-2 hero-entry-seal"
+        style={{ right: "4%", bottom: "6%", zIndex: 10, willChange: "transform" }}
       >
-        <RedArrow
-          direction="right"
-          className="w-8 hidden md:block hero-fade-in"
-          style={{ animationDelay: "1.0s" }}
-        />
-        <div className="relative w-28 h-28 md:w-40 md:h-40 hero-float" style={{ animationDelay: "2s" }}>
-          <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
+        <RedArrow direction="right" className="w-8 hidden md:block" />
+        <div className="relative w-28 h-28 md:w-40 md:h-40">
+          <svg viewBox="0 0 200 200" className="w-full h-full hero-seal-spin">
             <defs>
               <path
                 id="circlePath"
