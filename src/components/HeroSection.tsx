@@ -1,10 +1,11 @@
 import { useEffect, useRef, useCallback } from "react";
-import fighterImg from "@/assets/fighter-hero.webp";
-import glovesImg from "@/assets/boxing-gloves.png";
+import fighterImg from "@/assets/boxer-hero.webp";
+import pinkGloveImg from "@/assets/pink-boxing-glove.png";
 import headguardImg from "@/assets/headguard.png";
 import uniformImg from "@/assets/martial-arts-uniform.png";
 import shinGuardsImg from "@/assets/shin-guards.png";
 import mmaGlovesImg from "@/assets/mma-gloves.png";
+import glovesImg from "@/assets/boxing-gloves.png";
 import logoImg from "@/assets/eikyo-logo.jpg";
 
 const RedArrow = ({
@@ -65,14 +66,14 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ height: "min(100vh, 950px)", backgroundColor: "#FFFFFF" }}
+      style={{ height: "min(100vh, 950px)", minHeight: "600px", backgroundColor: "#FFFFFF" }}
     >
       {/* === LAYER 1: Solid red brand text — BEHIND fighter === */}
       <h1
         ref={eikyoText1Ref}
         className="absolute pointer-events-none select-none font-accent whitespace-nowrap hero-entry-eikyo"
         style={{
-          fontSize: "28vw",
+          fontSize: "clamp(80px, 28vw, 500px)",
           lineHeight: "0.92",
           letterSpacing: "0.04em",
           color: "#E8171A",
@@ -95,7 +96,7 @@ const HeroSection = () => {
           transformOrigin: "bottom center",
           bottom: 0,
           zIndex: 2,
-          height: "95%",
+          height: "90%",
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "center",
@@ -104,7 +105,7 @@ const HeroSection = () => {
         <img
           src={fighterImg}
           alt="Professional fighter in fighting stance"
-          className="h-full w-auto object-contain object-bottom"
+          className="h-full w-auto object-contain object-bottom max-w-none"
         />
       </div>
 
@@ -113,7 +114,7 @@ const HeroSection = () => {
         ref={eikyoText2Ref}
         className="absolute pointer-events-none select-none font-accent whitespace-nowrap hero-entry-eikyo"
         style={{
-          fontSize: "28vw",
+          fontSize: "clamp(80px, 28vw, 500px)",
           lineHeight: "0.92",
           letterSpacing: "0.04em",
           color: "transparent",
@@ -132,7 +133,7 @@ const HeroSection = () => {
       {/* Outer: parallax scroll. Inner: float bob */}
       <div
         ref={gloveWrapperRef}
-        className="absolute"
+        className="absolute hidden md:block"
         style={{ top: "8%", left: "18%", zIndex: 5, willChange: "transform" }}
       >
         <div className="hero-entry-glove hero-bob-glove">
@@ -142,7 +143,7 @@ const HeroSection = () => {
             style={{ top: "-10px", left: "-30px" }}
           />
           <img
-            src={glovesImg}
+            src={pinkGloveImg}
             alt=""
             aria-hidden="true"
             className="w-20 md:w-32"
@@ -155,7 +156,7 @@ const HeroSection = () => {
       {/* Outer: parallax scroll. Inner: float bob */}
       <div
         ref={mouthguardWrapperRef}
-        className="absolute"
+        className="absolute hidden md:block"
         style={{ bottom: "8%", left: "14%", zIndex: 4, willChange: "transform" }}
       >
         <img
@@ -168,7 +169,7 @@ const HeroSection = () => {
 
       {/* === "CHOICE OF CHAMPIONS" — lower-left below red text === */}
       <div
-        className="absolute pointer-events-none hero-entry-tagline"
+        className="absolute pointer-events-none hero-entry-tagline hidden md:block"
         style={{ left: "5%", bottom: "38%", zIndex: 6 }}
       >
         <p
@@ -307,8 +308,8 @@ const HeroSection = () => {
 
       {/* === Mobile: CHOICE OF CHAMPIONS at bottom center === */}
       <div
-        className="absolute bottom-[22%] left-0 right-0 pointer-events-none md:hidden text-center"
-        style={{ zIndex: 4 }}
+        className="absolute bottom-[35%] left-0 right-0 pointer-events-none md:hidden text-center"
+        style={{ zIndex: 6 }}
       >
         <p className="font-heading text-xs font-bold text-foreground uppercase tracking-[0.15em]">
           choice of champions
