@@ -308,8 +308,8 @@ const HeroSection = () => {
 
       {/* === Mobile: CHOICE OF CHAMPIONS at bottom center === */}
       <div
-        className="absolute bottom-[22%] left-0 right-0 pointer-events-none md:hidden text-center"
-        style={{ zIndex: 4 }}
+        className="absolute bottom-[35%] left-0 right-0 pointer-events-none md:hidden text-center"
+        style={{ zIndex: 6 }}
       >
         <p className="font-heading text-xs font-bold text-foreground uppercase tracking-[0.15em]">
           choice of champions
