@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import fighterImg from "@/assets/fighter-hero.webp";
-import pinkGloveImg from "@/assets/pink-glove.png";
-import headguardImg from "@/assets/headguard.png";
+import pinkGloveImg from "@/assets/pink-boxing-glove.png";
+import mouthGuardImg from "@/assets/mouth-guard.svg";
 import jerseyFanImg from "@/assets/jersey-fan.webp";
 import logoImg from "@/assets/eikyo-logo.jpg";
 
@@ -67,15 +67,15 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* === LAYER 3: Outline text — IN FRONT of fighter (3D depth) === */}
+      {/* === LAYER 3: Solid red text — IN FRONT of fighter (3D depth) === */}
       <h1
         className="absolute pointer-events-none select-none font-accent whitespace-nowrap hero-eikyo-parallax"
         style={{
           fontSize: "28vw",
           lineHeight: "0.92",
           letterSpacing: "0.04em",
-          color: "transparent",
-          WebkitTextStroke: "3px #E8171A",
+          color: "#E8171A",
+          WebkitTextStroke: "0",
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -30%)",
@@ -103,7 +103,7 @@ const HeroSection = () => {
 
       {/* === FLOATING HEADGUARD — bottom-left === */}
       <img
-        src={headguardImg}
+        src={mouthGuardImg}
         alt=""
         aria-hidden="true"
         className="absolute hidden md:block hero-mouthguard"
@@ -112,7 +112,7 @@ const HeroSection = () => {
           left: "14%",
           zIndex: 4,
           width: "clamp(100px, 12vw, 200px)",
-          opacity: 0.5,
+          opacity: 0.7,
         }}
       />
 

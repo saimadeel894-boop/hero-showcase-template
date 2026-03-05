@@ -76,10 +76,7 @@
   animation: spin-slow 12s linear infinite;
 }
 
-.text-stroke-red {
-  -webkit-text-stroke: 3px hsl(4 79% 52%);
-  color: transparent;
-}
+/* text-stroke-red removed — EIKYO must be solid filled */
 
 /* Slight, subtle float to feel closer to reference hero */
 @keyframes float-drift-1 {
@@ -210,27 +207,30 @@
   .hero-eikyo-text,
   .hero-eikyo-parallax {
     font-size: 45vw !important;
-    top: 25% !important;
+    top: 40% !important;
     transform: translate(-50%, -50%) !important;
   }
   .hero-boxer-image {
-    height: 55% !important;
-    width: 90vw !important;
+    height: 65% !important;
+    bottom: 0 !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
-  .hero-boxer-image img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 100% !important;
+  .hero-glove,
+  .hero-mouthguard,
+  .hero-jersey-fan,
+  .hero-customers-block,
+  .hero-brand-seal {
+    display: none !important;
   }
   .hero-tagline {
-    top: 40% !important;
-    bottom: auto !important;
+    bottom: 28% !important;
+    top: auto !important;
     left: 5% !important;
   }
   .hero-stat-block {
     bottom: 2% !important;
+    left: 3% !important;
   }
 }
 
