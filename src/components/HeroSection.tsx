@@ -28,7 +28,7 @@ const HeroSection = () => {
   return (
     <section
       className="hero-section relative w-full overflow-hidden"
-      style={{ height: "75vh", backgroundColor: "#FFFFFF" }}
+      style={{ height: "70vh", backgroundColor: "#FFFFFF" }}
     >
       {/* Layer 1 — BOXER IMAGE (BEHIND text) */}
       <img
@@ -51,15 +51,15 @@ const HeroSection = () => {
       <h1
         className="hero-eikyo-text absolute pointer-events-none select-none whitespace-nowrap"
         style={{
-          top: "42%",
+          top: "35%",
           left: "50%",
           transform: "translateX(-50%)",
-          fontFamily: "'Big Shoulders Display', sans-serif",
-          fontSize: "30vw",
-          fontWeight: 900,
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: "22vw",
+          fontWeight: 400,
           color: "#E8171A",
-          lineHeight: 0.9,
-          letterSpacing: "-3px",
+          lineHeight: 1,
+          letterSpacing: "2px",
           textAlign: "center",
           zIndex: 3,
           opacity: 1,
@@ -85,35 +85,22 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Layer 4 — FLOATING MOUTH GUARD upper-left (ghost appearance) */}
+      {/* Layer 4 — FLOATING MOUTH GUARD lower-left (ghost appearance) */}
       <img
         src={mouthGuardImg}
         alt=""
         aria-hidden="true"
         className="hero-mouthguard absolute hidden md:block"
         style={{
-          top: "16%",
-          left: "2%",
-          width: "120px",
+          top: "62%",
+          left: "14%",
+          width: "150px",
           zIndex: 4,
-          opacity: 0.4,
+          opacity: 0.45,
         }}
       />
 
-      {/* Layer 4 — MARTIAL ARTS UNIFORM above Choice of Champions */}
-      <img
-        src={martialArtsUniformImg}
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden md:block"
-        style={{
-          top: "32%",
-          left: "10%",
-          width: "55px",
-          zIndex: 4,
-          opacity: 0.85,
-        }}
-      />
+      {/* DELETED: martial arts uniform — not in reference */}
 
       {/* Layer 4 — 5K+ CUSTOMERS top-right */}
       <div
