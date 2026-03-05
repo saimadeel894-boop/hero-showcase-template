@@ -36,7 +36,7 @@ const HeroSection = () => {
           bottom: "5%",
           left: "50%",
           transform: "translateX(-50%)",
-          fontSize: "28vw",
+          fontSize: "40vw",
           fontWeight: 900,
           color: "#E8171A",
           lineHeight: 1,
@@ -90,11 +90,11 @@ const HeroSection = () => {
         aria-hidden="true"
         className="hero-mouthguard absolute hidden md:block"
         style={{
-          bottom: "28%",
+          bottom: "18%",
           left: "10%",
           width: "130px",
           zIndex: 4,
-          opacity: 0.6,
+          opacity: 0.7,
         }}
       />
 
@@ -152,10 +152,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Layer 5 — CHOICE OF CHAMPIONS */}
       <div
         className="hero-tagline absolute pointer-events-none"
-        style={{ bottom: "32%", left: "3%", zIndex: 5 }}
+        style={{ bottom: "32%", left: "3%", zIndex: 5, background: "none", border: "none", borderRadius: 0, boxShadow: "none", padding: 0 }}
       >
         <p
           className="font-heading uppercase"
@@ -164,6 +163,10 @@ const HeroSection = () => {
             fontWeight: 700,
             letterSpacing: "3px",
             color: "#000000",
+            background: "none",
+            border: "none",
+            borderRadius: 0,
+            padding: 0,
           }}
         >
           choice of champions
