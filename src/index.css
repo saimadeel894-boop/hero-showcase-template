@@ -145,7 +145,6 @@
 
 /* Hero entry animations */
 .hero-eikyo-text {
-  display: inline-block;
   animation: fadeScaleIn 0.6s ease-out forwards;
 }
 .hero-boxer-image {
@@ -153,11 +152,23 @@
   opacity: 0;
 }
 .hero-glove {
-  animation: fadeSlideDown 0.6s ease-out 0.2s forwards;
+  animation: fadeSlideDown 0.6s ease-out 0.2s forwards, floatBob 3s ease-in-out 1s infinite;
+  opacity: 0;
+}
+.hero-mouthguard {
+  animation: fadeIn 0.5s ease-out 0.6s forwards, floatBob 3s ease-in-out 1.5s infinite;
   opacity: 0;
 }
 .hero-customers-block {
   animation: fadeSlideLeft 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+.hero-jersey-fan {
+  animation: fadeSlideLeft 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+.hero-tagline {
+  animation: fadeIn 0.5s ease-out 0.4s forwards;
   opacity: 0;
 }
 .hero-stat-block {
@@ -165,7 +176,7 @@
   opacity: 0;
 }
 .hero-brand-seal {
-  animation: fadeIn 0.5s ease-out 0.7s forwards, sealSpin 8s linear infinite;
+  animation: fadeIn 0.5s ease-out 0.7s forwards;
   opacity: 0;
 }
 
@@ -192,5 +203,34 @@
 @keyframes floatBob {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
+}
+
+/* Mobile hero fixes */
+@media (max-width: 767px) {
+  .hero-eikyo-text,
+  .hero-eikyo-parallax {
+    font-size: 45vw !important;
+    top: 25% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .hero-boxer-image {
+    height: 55% !important;
+    width: 90vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  .hero-boxer-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+  }
+  .hero-tagline {
+    top: 40% !important;
+    bottom: auto !important;
+    left: 5% !important;
+  }
+  .hero-stat-block {
+    bottom: 2% !important;
+  }
 }
 
