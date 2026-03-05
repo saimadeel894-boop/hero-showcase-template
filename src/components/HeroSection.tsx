@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import fighterImg from "@/assets/fighter-hero.webp";
-import pinkGloveImg from "@/assets/single-pink-glove.png";
+import pinkGloveImg from "@/assets/pink-boxing-glove.png";
 import mouthGuardImg from "@/assets/mouth-guard.svg";
 import jerseyFanImg from "@/assets/jersey-fan.webp";
 import logoImg from "@/assets/eikyo-logo.jpg";
