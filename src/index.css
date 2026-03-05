@@ -216,13 +216,13 @@
   }
   .hero-eikyo-text {
     font-size: 48vw !important;
-    bottom: 25% !important;
+    bottom: auto !important;
+    top: 42% !important;
     left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: auto !important;
+    transform: translate(-50%, -50%) !important;
   }
   .hero-boxer-image {
-    height: 75% !important;
+    height: 82% !important;
     bottom: 0 !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
