@@ -172,8 +172,8 @@ const HeroSection = () => {
 
         .hero-glove { position: absolute; top: 14%; left: 24%; width: 95px; z-index: 4; transform: rotate(-8deg); will-change: transform; animation: floatBob 3s ease-in-out infinite; }
         .hero-mouthguard { position: absolute; top: 50%; right: -1%; width: 110px; z-index: 4; opacity: 0.35; will-change: transform; }
-        .hero-customers { position: absolute; top: 8%; right: 5%; z-index: 5; font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; font-weight: 900; color: #000; letter-spacing: 0.05em; margin: 0; will-change: transform; white-space: nowrap; }
-        .hero-jerseys { position: absolute; top: 18%; right: 4%; width: 185px; z-index: 5; }
+        .hero-customers { position: absolute; top: 12%; right: 5%; z-index: 5; font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; font-weight: 900; color: #000; letter-spacing: 0.05em; margin: 0; will-change: transform; white-space: nowrap; }
+        .hero-jerseys { position: absolute; top: 22%; right: 4%; width: 185px; z-index: 5; }
         .hero-karate { position: absolute; bottom: 0; left: -2%; width: 160px; z-index: 4; pointer-events: none; }
 
         .hero-choice-mask { position: absolute; bottom: 34%; left: 18%; z-index: 5; overflow: hidden; }
