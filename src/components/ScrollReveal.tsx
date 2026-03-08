@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ScrollReveal = ({ children, delay = 0 }: Props) => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
+  const { ref, isVisible } = useScrollAnimation(0.01);
 
   return (
     <div
