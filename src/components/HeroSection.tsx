@@ -6,111 +6,89 @@ import jerseyFanImg from "@/assets/jersey-fan.webp";
 import logoImg from "@/assets/eikyo-logo.jpg";
 
 const HeroSection = () => {
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const eikyo = document.querySelector<HTMLElement>(".hero-eikyo-text");
-      const glove = document.querySelector<HTMLElement>(".hero-glove");
-      const mouth = document.querySelector<HTMLElement>(".hero-mouthguard");
-      const seal = document.querySelector<HTMLElement>(".hero-brand-seal");
-      const stat = document.querySelector<HTMLElement>(".hero-stat-block");
-      if (eikyo) eikyo.style.transform = `translateX(-50%) scaleX(1.5) translateY(${y * 0.2}px)`;
-      if (glove) glove.style.transform = `rotate(-15deg) translateY(${y * 0.5}px)`;
-      if (mouth) mouth.style.transform = `translateY(${y * 0.4}px)`;
-      if (seal) seal.style.transform = `translateY(${y * 0.6}px) rotate(${y * 0.5}deg)`;
-      if (stat) stat.style.transform = `translateY(${y * 0.8}px)`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section
       className="hero-section relative w-full overflow-hidden"
-      style={{ height: "70vh", backgroundColor: "#FFFFFF" }}
+      style={{ height: "72vh", backgroundColor: "#FFFFFF" }}
     >
-      {/* Layer 1 — BOXER IMAGE (BEHIND text) */}
+      {/* z-index 1 — BOXER IMAGE (BEHIND text) */}
       <img
         src={fighterImg}
         alt="Professional fighter in fighting stance"
-        className="hero-boxer-image absolute pointer-events-none"
+        className="absolute pointer-events-none"
         style={{
           bottom: 0,
           left: "50%",
           transform: "translateX(-50%)",
-          height: "92%",
+          height: "100%",
           width: "auto",
-          zIndex: 2,
+          zIndex: 1,
           objectFit: "contain",
-          objectPosition: "bottom center",
         }}
       />
 
-      {/* Layer 3 — EIKYO TEXT (IN FRONT of boxer) */}
+      {/* z-index 2 — EIKYO TEXT (IN FRONT of boxer) */}
       <h1
-        className="hero-eikyo-text absolute pointer-events-none select-none whitespace-nowrap"
+        className="absolute pointer-events-none select-none whitespace-nowrap"
         style={{
-          top: "35%",
+          bottom: 0,
           left: "50%",
-          transform: "translateX(-50%) scaleX(1.5)",
-          transformOrigin: "center",
-          fontFamily: "'Anton', sans-serif",
-          fontSize: "28vw",
+          transform: "translateX(-50%) scaleX(1.55)",
+          transformOrigin: "bottom center",
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: "22vw",
           fontWeight: 400,
           color: "#E8171A",
           lineHeight: 1,
-          letterSpacing: "4px",
+          letterSpacing: "6px",
           display: "block",
           textAlign: "center",
-          zIndex: 3,
+          zIndex: 2,
           opacity: 1,
           WebkitTextStroke: "0",
-          WebkitTextFillColor: "#E8171A",
         }}
       >
         EIKYO
       </h1>
 
-      {/* Layer 4 — FLOATING PINK GLOVE top-left */}
+      {/* z-index 4 — PINK GLOVE top-left */}
       <img
         src={pinkGloveImg}
         alt=""
         aria-hidden="true"
-        className="hero-glove absolute hidden md:block"
+        className="absolute hidden md:block"
         style={{
-          top: "10%",
-          left: "26%",
-          width: "110px",
+          top: "8%",
+          left: "23%",
+          width: "90px",
           zIndex: 4,
-          transform: "rotate(-15deg)",
+          transform: "rotate(-5deg)",
         }}
       />
 
-      {/* Layer 4 — FLOATING MOUTH GUARD lower-left (ghost appearance) */}
+      {/* z-index 4 — MOUTH GUARD lower-left */}
       <img
         src={mouthGuardImg}
         alt=""
         aria-hidden="true"
-        className="hero-mouthguard absolute hidden md:block"
+        className="absolute hidden md:block"
         style={{
-          top: "62%",
-          left: "14%",
-          width: "150px",
+          bottom: "22%",
+          left: "8%",
+          width: "155px",
           zIndex: 4,
-          opacity: 0.45,
+          opacity: 0.4,
         }}
       />
 
-      {/* DELETED: martial arts uniform — not in reference */}
-
-      {/* Layer 4 — 5K+ CUSTOMERS top-right */}
+      {/* z-index 4 — 5K+ CUSTOMERS top-right */}
       <div
-        className="hero-customers-block absolute hidden md:flex items-center"
+        className="absolute hidden md:flex items-center"
         style={{
-          top: "10%",
-          right: "4%",
+          top: "6%",
+          right: "5%",
           fontSize: "1.5rem",
-          fontWeight: 800,
+          fontWeight: 900,
           color: "#000000",
           zIndex: 4,
         }}
@@ -120,26 +98,26 @@ const HeroSection = () => {
         </h3>
       </div>
 
-      {/* Layer 4 — JERSEY FAN right side */}
+      {/* z-index 4 — JERSEY FAN right side */}
       <div
-        className="hero-jersey-fan absolute hidden md:block"
-        style={{ top: "16%", right: "3%", zIndex: 4 }}
+        className="absolute hidden md:block"
+        style={{ top: "17%", right: "4%", zIndex: 4 }}
       >
         <img
           src={jerseyFanImg}
           alt=""
           aria-hidden="true"
-          style={{ width: "210px", height: "auto" }}
+          style={{ width: "185px", height: "auto" }}
         />
       </div>
 
-      {/* Layer 4 — BRAND SEAL bottom-right */}
+      {/* z-index 4 — BRAND SEAL bottom-right */}
       <div
-        className="hero-brand-seal absolute hidden md:flex items-center"
-        style={{ top: "72%", right: "3%", width: "130px", zIndex: 4 }}
+        className="absolute hidden md:flex items-center"
+        style={{ bottom: "4%", right: "3%", width: "115px", zIndex: 4 }}
       >
         <div className="relative w-full" style={{ aspectRatio: "1" }}>
-          <svg viewBox="0 0 200 200" className="hero-brand-seal-spinner w-full h-full">
+          <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: "spin 12s linear infinite" }}>
             <defs>
               <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
             </defs>
@@ -157,21 +135,20 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* CHOICE OF CHAMPIONS — left side */}
+      {/* z-index 4 — CHOICE OF CHAMPIONS */}
       <div
-        className="hero-tagline absolute pointer-events-none"
-        style={{ top: "56%", left: "12%", zIndex: 5, background: "none", border: "none", borderRadius: 0, boxShadow: "none", padding: 0 }}
+        className="absolute pointer-events-none"
+        style={{ bottom: "33%", left: "3%", zIndex: 4 }}
       >
         <p
           className="font-heading uppercase"
           style={{
-            fontSize: "0.85rem",
+            fontSize: "0.82rem",
             fontWeight: 700,
-            letterSpacing: "3px",
+            letterSpacing: "5px",
             color: "#000000",
             background: "none",
             border: "none",
-            borderRadius: 0,
             padding: 0,
           }}
         >
@@ -179,20 +156,20 @@ const HeroSection = () => {
         </p>
       </div>
 
-      {/* Layer 5 — 10+ STAT BLOCK */}
+      {/* z-index 4 — 10+ STAT BLOCK */}
       <div
-        className="hero-stat-block absolute"
-        style={{ top: "66%", left: "12%", zIndex: 5 }}
+        className="absolute"
+        style={{ bottom: "11%", left: "3%", zIndex: 4 }}
       >
         <h3
           className="font-heading leading-none"
-          style={{ fontSize: "3.5rem", fontWeight: 900, color: "#000000" }}
+          style={{ fontSize: "3.2rem", fontWeight: 900, color: "#000000" }}
         >
           10+
         </h3>
         <p
           className="font-heading mt-1"
-          style={{ fontSize: "0.8rem", color: "#000000" }}
+          style={{ fontSize: "0.82rem", color: "#000000" }}
         >
           Years Of
           <br />
@@ -200,13 +177,13 @@ const HeroSection = () => {
         </p>
       </div>
 
-      {/* Layer 5 — WHATSAPP BUTTON */}
+      {/* z-index 4 — WHATSAPP BUTTON */}
       <a
         href="https://wa.me/"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute flex items-center gap-2"
-        style={{ left: "2%", bottom: "3%", zIndex: 5 }}
+        style={{ left: "3%", bottom: "3%", zIndex: 4 }}
       >
         <div
           className="rounded-full flex items-center justify-center"

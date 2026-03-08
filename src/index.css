@@ -140,120 +140,23 @@
   animation: marquee 20s linear infinite;
 }
 
-/* Hero entry animations */
-.hero-eikyo-text {
-  animation: fadeScale 0.6s ease-out forwards;
-}
-.hero-boxer-image {
-  animation: fadeDownCenter 0.8s ease-out 0.1s forwards;
-  opacity: 0;
-}
-.hero-glove {
-  animation: fadeDownGlove 0.6s ease-out 0.2s forwards;
-  opacity: 0;
-}
-.hero-mouthguard {
-  animation: fadeIn 0.5s ease-out 0.6s forwards;
-  opacity: 0;
-}
-.hero-customers-block {
-  animation: fadeLeft 0.6s ease-out 0.3s forwards;
-  opacity: 0;
-}
-.hero-jersey-fan {
-  animation: fadeLeft 0.6s ease-out 0.4s forwards;
-  opacity: 0;
-}
-.hero-tagline {
-  animation: fadeIn 0.5s ease-out 0.4s forwards;
-  opacity: 0;
-}
-.hero-stat-block {
-  animation: fadeIn 0.5s ease-out 0.5s forwards;
-  opacity: 0;
-}
-.hero-brand-seal {
-  animation: fadeIn 0.5s ease-out 0.7s forwards;
-  opacity: 0;
-}
-.hero-brand-seal-spinner {
-  animation: sealSpin 8s linear infinite;
-}
-
-@keyframes fadeScale {
-  from { opacity: 0.4; transform: translateX(-50%) scaleX(1.5) scale(0.95); }
-  to   { opacity: 1;   transform: translateX(-50%) scaleX(1.5) scale(1); }
-}
-@keyframes fadeDownCenter {
-  from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-@keyframes fadeDownGlove {
-  from { opacity: 0; transform: rotate(-15deg) translateY(-25px); }
-  to   { opacity: 1; transform: rotate(-15deg) translateY(0); }
-}
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(30px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes sealSpin {
+@keyframes spin {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* Mobile hero fixes */
+/* Mobile hero */
 @media (max-width: 768px) {
   .hero-section {
     height: 100svh !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
     overflow: hidden;
     background: #FFFFFF;
   }
-  .hero-eikyo-text {
-    font-size: 55vw !important;
-    top: 45% !important;
-    z-index: 3 !important;
+  .hero-section h1 {
+    font-size: 38vw !important;
   }
-  .hero-boxer-image {
-    height: 80% !important;
-    width: auto !important;
-    min-width: 130% !important;
-    max-width: none !important;
-    bottom: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 2 !important;
-    object-fit: unset !important;
-  }
-  .hero-glove,
-  .hero-mouthguard,
-  .hero-jersey-fan,
-  .hero-customers-block,
-  .hero-brand-seal {
-    display: none !important;
-  }
-  .hero-tagline {
-    bottom: 22% !important;
-    left: 4% !important;
-    top: auto !important;
-    z-index: 5 !important;
-  }
-  .hero-tagline p {
-    font-size: 0.65rem !important;
-    letter-spacing: 2px !important;
-  }
-  .hero-stat-block {
-    bottom: 4% !important;
-    left: 4% !important;
-    z-index: 5 !important;
-  }
-  .hero-stat-block h3 {
-    font-size: 2.2rem !important;
+  .hero-section img[alt="Professional fighter in fighting stance"] {
+    height: 78% !important;
   }
 }
 
