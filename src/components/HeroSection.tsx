@@ -191,7 +191,7 @@ const HeroSection = () => {
         @media (max-width: 768px) {
           .hero-wrap { height: 100svh; }
           .hero-eikyo-stroke, .hero-eikyo-fill { top: 30%; }
-          .hero-eikyo-stroke span, .hero-eikyo-fill span { font-size: 32vw; -webkit-text-stroke-width: 4px; letter-spacing: 8px; }
+          .hero-eikyo-stroke span, .hero-eikyo-fill span { font-size: 38vw; -webkit-text-stroke-width: 4px; letter-spacing: 4px; }
           .hero-boxer { height: 85%; }
           .hero-glove, .hero-mouthguard, .hero-customers, .hero-jerseys, .hero-seal-wrap, .hero-karate { display: none; }
           .hero-choice { font-size: 0.7rem; }
