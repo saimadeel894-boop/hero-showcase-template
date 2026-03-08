@@ -25,12 +25,20 @@ const ProductCategories = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {products.map((p) => (
-            <div key={p.code} className="bg-white rounded-2xl p-4 md:p-6 flex flex-col items-center group hover:-translate-y-1 transition-transform duration-300">
-              <div className="aspect-square w-full flex items-center justify-center mb-4">
-                <img src={p.img} alt={p.name} className="max-h-[80%] w-auto object-contain transition-transform duration-500 group-hover:scale-110" />
+            <div
+              key={p.code}
+              className="bg-white rounded-2xl p-4 md:p-6 flex flex-col items-center group cursor-pointer transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+            >
+              <div className="aspect-square w-full flex items-center justify-center mb-4 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="max-h-[80%] w-auto object-contain transition-all duration-700 ease-out group-hover:scale-115 group-hover:-translate-y-2"
+                  style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
+                />
               </div>
-              <h3 className="font-body font-bold text-foreground text-sm md:text-base text-center">{p.name}</h3>
-              <p className="font-body text-muted-foreground text-xs mt-1">{p.code}</p>
+              <h3 className="font-body font-bold text-foreground text-sm md:text-base text-center transition-colors duration-300 group-hover:text-primary">{p.name}</h3>
+              <p className="font-body text-muted-foreground text-xs mt-1 transition-opacity duration-300 group-hover:opacity-70">{p.code}</p>
             </div>
           ))}
         </div>
